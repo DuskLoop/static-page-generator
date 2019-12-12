@@ -9,12 +9,13 @@
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
+    "@babel/node": "7.7.0",
     "@babel/preset-env": "7.7.1",
     "@babel/preset-react": "7.7.0",
-    "@babel/node": "7.7.0",
     "nodemon": "1.19.4"
   },
   "dependencies": {
+    "node-fetch": "2.6.0",
     "react": "16.11.0",
     "react-dom": "16.11.0"
   }

@@ -3,14 +3,34 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import App from './App';
 import fs from 'fs';
 import template from './template';
+import fetch from 'node-fetch';
 
-const body = renderToStaticMarkup(<App data={{ ok: 'lol' }} />);
+fetch(
+  'http://eniacdata.atlassian.net/rest/api/3/search?jql=issuekey = "EK-808" &fields=summary, description, customfield_10036, customfield_10035, customfield_10034, customfield_10010&maxResults=170&startAt=0&expand=renderedFields',
+  {
+    headers: {
+      Authorization:
+        'Basic ZGFuaWVsLmhpbGRlc3NvbkBlbmlhYy5zZTo4ZmJBYTNrNXJjZkFhU0tYSFNRU0YxREI=',
+      'Content-Type': 'application/json',
+    },
+  }
+)
+  .then(res => res.text())
+  .then(body => {
+    const response = JSON.parse(body);
 
-const markup = template({
-  body,
-  title: 'Test',
-});
+    const staticMarkup = renderToStaticMarkup(<App data={response} />);
 
-fs.writeFile('result/index.html', markup, err => {
-  console.log('Done: ', err);
-});
+    console.log(staticMarkup);
+
+    const markup = template({
+      body: staticMarkup,
+      title: 'Issue Test',
+    });
+
+    // console.log(markup);
+
+    fs.writeFile('result/index.html', markup, err => {
+      console.log('Done: ', err);
+    });
+  });
