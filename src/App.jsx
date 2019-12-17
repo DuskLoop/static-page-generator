@@ -6,7 +6,7 @@ class App extends React.Component {
     return (
       <div className={'container'}>
         {this.props.data.issues.map(issue => (
-          <Issue issue={{ ...issue }}></Issue>
+          <Issue key={issue.id} issue={{ ...issue }}></Issue>
         ))}
       </div>
     );

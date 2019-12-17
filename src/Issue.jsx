@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Issue = props => {
-  // console.log(props.issue.renderedFields.description);
   return (
     <div>
       <h2>

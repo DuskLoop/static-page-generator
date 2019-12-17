@@ -21,7 +21,7 @@ fetch(
 
     const staticMarkup = renderToStaticMarkup(<App data={response} />);
 
-    console.log(staticMarkup);
+    // console.log(staticMarkup);
 
     const markup = template({
       body: staticMarkup,
@@ -31,6 +31,10 @@ fetch(
     // console.log(markup);
 
     fs.writeFile('result/index.html', markup, err => {
-      console.log('Done: ', err);
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Done without any errors');
+      }
     });
   });
