@@ -4,16 +4,15 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --watch src --exec babel-node src/index.tsx --extensions \".ts,.tsx\"",
-    "build": "./node_modules/.bin/babel src --out-dir build",
-    "serve": "browser-sync start --server \"result\" --files \"result\""
+    "start": "node ./scripts/start",
+    "build": "node ./scripts/build"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
     "@babel/node": "7.7.0",
     "@babel/preset-env": "7.7.1",
-    "@babel/preset-typescript": "7.7.4",
     "@babel/preset-react": "7.7.0",
+    "@babel/preset-typescript": "7.7.4",
     "@types/node": "12.12.19",
     "@types/node-fetch": "2.5.4",
     "@types/react": "16.9.16",
@@ -23,6 +22,8 @@
     "typescript": "3.7.3"
   },
   "dependencies": {
+    "@babel/cli": "^7.7.5",
+    "chalk": "3.0.0",
     "node-fetch": "2.6.0",
     "react": "16.11.0",
     "react-dom": "16.11.0"

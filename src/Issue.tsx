@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
 
 interface IProps {
   issue: any;
+  hej: string;
 }
 
 const Issue: React.FC<IProps> = props => {
@@ -9,6 +10,7 @@ const Issue: React.FC<IProps> = props => {
     <div>
       <h2>
         {props.issue.key} : {props.issue.fields.summary}
+        {props.hej}
       </h2>
       <div
         dangerouslySetInnerHTML={{

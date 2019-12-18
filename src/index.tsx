@@ -4,6 +4,7 @@ import App from './App';
 import fs from 'fs';
 import template from './template';
 import fetch from 'node-fetch';
+import paths from '../config/paths';
 
 fetch(
   'http://eniacdata.atlassian.net/rest/api/3/search?jql=issuekey = "EK-808" &fields=summary, description, customfield_10036, customfield_10035, customfield_10034, customfield_10010&maxResults=170&startAt=0&expand=renderedFields',
@@ -23,6 +24,8 @@ fetch(
 
     // console.log(staticMarkup);
 
+    // const hej: string = 2;
+
     const markup = template({
       body: staticMarkup,
       title: 'Issue Test',
@@ -30,7 +33,7 @@ fetch(
 
     // console.log(markup);
 
-    fs.writeFile('result/index.html', markup, err => {
+    fs.writeFile(`${paths.appDevOutput}/index.html`, markup, err => {
       if (err) {
         console.error(err);
       } else {

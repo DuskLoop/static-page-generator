@@ -1,5 +1,5 @@
-import React from "react";
-import Issue from "./Issue";
+import React from 'react';
+import Issue from './Issue';
 
 interface IProps {
   data: any;
@@ -7,9 +7,9 @@ interface IProps {
 
 const App: React.FC<IProps> = props => {
   return (
-    <div className={"container"}>
+    <div className={'container'}>
       {props.data.issues.map((issue: any) => (
-        <Issue key={issue.id} issue={{ ...issue }}></Issue>
+        <Issue key={issue.id} issue={{ ...issue }} hej="lol"></Issue>
       ))}
     </div>
   );
