@@ -1,14 +1,15 @@
 const presets = [
   [
-    '@babel/env',
+    "@babel/env",
     {
       targets: {
-        node: '11',
+        node: "11",
       },
-      modules: 'commonjs',
+      modules: "commonjs",
     },
   ],
-  ['@babel/preset-react'],
+  ["@babel/preset-react"],
+  ["@babel/preset-typescript"],
 ];
 
 module.exports = { presets };

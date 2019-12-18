@@ -1,4 +1,4 @@
-export default ({ body, title }) => {
+export default ({ body, title }: { body: string; title: string }) => {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>

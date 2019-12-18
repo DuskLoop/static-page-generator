@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 
-const Issue = props => {
+interface IProps {
+  issue: any;
+}
+
+const Issue: React.FC<IProps> = props => {
   return (
     <div>
       <h2>
-        {props.issue.key} - {props.issue.fields.summary}
+        {props.issue.key} : {props.issue.fields.summary}
       </h2>
       <div
         dangerouslySetInnerHTML={{
