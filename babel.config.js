@@ -1,15 +1,24 @@
 const presets = [
   [
-    "@babel/env",
+    '@babel/env',
     {
       targets: {
-        node: "11",
+        node: '11',
       },
-      modules: "commonjs",
+      modules: 'commonjs',
     },
   ],
-  ["@babel/preset-react"],
-  ["@babel/preset-typescript"],
+  ['@babel/preset-react'],
+  ['@babel/preset-typescript'],
 ];
 
-module.exports = { presets };
+const plugins = [
+  [
+    'transform-inline-environment-variables',
+    {
+      include: ['NODE_ENV'],
+    },
+  ],
+];
+
+module.exports = { presets, plugins };

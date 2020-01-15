@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./scripts/start",
-    "build": "node ./scripts/build"
+    "startMockedIssues": "cross-env USE_MOCKED_ISSUES=Y node ./scripts/start",
+    "build": "node ./scripts/build",
+    "mock": "node ./scripts/mockIssues"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
@@ -13,17 +15,21 @@
     "@babel/preset-env": "7.7.1",
     "@babel/preset-react": "7.7.0",
     "@babel/preset-typescript": "7.7.4",
+    "@types/inquirer": "6.5.0",
     "@types/node": "12.12.19",
     "@types/node-fetch": "2.5.4",
     "@types/react": "16.9.16",
     "@types/react-dom": "16.9.4",
+    "babel-plugin-transform-inline-environment-variables": "0.4.3",
     "browser-sync": "2.26.7",
+    "cross-env": "6.0.3",
     "nodemon": "1.19.4",
     "typescript": "3.7.3"
   },
   "dependencies": {
     "@babel/cli": "^7.7.5",
     "chalk": "3.0.0",
+    "inquirer": "7.0.3",
     "node-fetch": "2.6.0",
     "react": "16.11.0",
     "react-dom": "16.11.0"

@@ -18,13 +18,15 @@ spawn('node_modules\\.bin\\tsc', ['-w'], {
  */
 browserSync({ server: paths.appDevOutput, files: paths.appDevOutput });
 
+process.env.NODE_ENV = 'hej';
+
 /**
  * Use nodemon to watch files, transpile with Babel
  */
 nodemon({
   script: paths.appIndex,
   ext: 'ts tsx',
-  exec: 'babel-node src/index.tsx --extensions ".ts,.tsx"',
+  exec: 'babel-node src/index.ts --extensions ".ts,.tsx"',
 });
 
 nodemon

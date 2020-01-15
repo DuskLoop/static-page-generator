@@ -6,6 +6,8 @@ var babel = require('@babel/core');
 
 const paths = require('../config/paths');
 
+process.env.NODE_ENV = 'production';
+
 /**
  * Type checking
  */
