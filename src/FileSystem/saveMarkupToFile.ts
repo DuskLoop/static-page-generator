@@ -1,6 +1,7 @@
 import fs from 'fs';
 import paths from '../../config/paths';
 import { isProduction, formatDateTime } from '../Common/utils';
+import { resolve } from 'dns';
 
 const timeStampOptions = {
   year: 'numeric',
@@ -26,7 +27,7 @@ const getProductionOutputFolderPath = (version: string) => {
 export const saveStaticMarkupToFile = (
   version: string,
   staticMarkup: string
-) => {
+): Promise<string> => {
   const folderPath = isProduction()
     ? getProductionOutputFolderPath(version)
     : getDevelopmentOutputFolderPath();
@@ -35,11 +36,14 @@ export const saveStaticMarkupToFile = (
     fs.mkdirSync(folderPath, { recursive: true });
   }
 
-  fs.writeFile(`${folderPath}/index.html`, staticMarkup, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(`Ändringslogg sparad till ${folderPath}`);
-    }
+  return new Promise((resolve, reject) => {
+    fs.writeFile(`${folderPath}/index.html`, staticMarkup, err => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Ändringslogg sparad till ${folderPath}`);
+        resolve(`${folderPath}/index.html`);
+      }
+    });
   });
 };
