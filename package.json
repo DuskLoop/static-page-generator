@@ -8,7 +8,7 @@
     "startMockedIssues": "cross-env USE_MOCKED_ISSUES=Y node ./scripts/start",
     "build": "node ./scripts/build",
     "mock": "node ./scripts/mockIssues",
-    "package": "pkg build/index.js --targets node12-win-x64 --output exe/Changelog"
+    "package": "yarn build && pkg build/index.js --targets node12-win-x64 --output exe/Changelog"
   },
   "devDependencies": {
     "@babel/core": "7.8.3",

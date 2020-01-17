@@ -1,16 +1,15 @@
+import open from 'open';
+import inquirer from 'inquirer';
+
 import { renderIssuesToStaticMarkup } from './Render/renderIssues';
 import { validateIssues } from './Jira/validateIssues';
 import { saveStaticMarkupToFile } from './FileSystem/saveMarkupToFile';
 import { groupIssues, getJiraIssues } from './Jira/getJiraIssues';
 import { mockedIssues } from './issuesMock';
-import readline from 'readline';
-import paths from '../config/paths';
-import open from 'open';
-
 import { IUserInput } from './Jira/jiraConfig';
 import { getUserInputFromCLI } from './CLI/cli';
 import { isProduction } from './Common/utils';
-import inquirer from 'inquirer';
+import { getVersions } from './Jira/getVersions';
 
 const generateChangelog = async (userInput: IUserInput): Promise<string> => {
   const jiraIssues =
