@@ -4,6 +4,8 @@ import { IJiraIssue, IIssueGroup } from '../Common/jiraIssue';
 import App from './Components/App';
 import template from './template';
 
+const hej = '';
+
 export const renderIssuesToStaticMarkup = (issueGroups: IIssueGroup[]) => {
   const bodyStaticMarkup = renderToStaticMarkup(
     <App issueGroups={issueGroups} />

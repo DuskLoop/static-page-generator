@@ -5,6 +5,8 @@ const spawn = require('child_process').spawn;
 
 const paths = require('../config/paths');
 
+process.env.NODE_ENV = 'development';
+
 /**
  * Type checking
  */
@@ -17,8 +19,6 @@ spawn('node_modules\\.bin\\tsc', ['-w'], {
  * Update browser
  */
 browserSync({ server: paths.appDevOutput, files: paths.appDevOutput });
-
-process.env.NODE_ENV = 'hej';
 
 /**
  * Use nodemon to watch files, transpile with Babel

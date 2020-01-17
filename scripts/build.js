@@ -1,10 +1,5 @@
-const nodemon = require('nodemon');
-const browserSync = require('browser-sync');
 const chalk = require('chalk');
 const spawnSync = require('child_process').spawnSync;
-var babel = require('@babel/core');
-
-const paths = require('../config/paths');
 
 process.env.NODE_ENV = 'production';
 

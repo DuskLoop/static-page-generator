@@ -16,12 +16,7 @@ const Issue: React.FC<IProps> = props => {
           __html: props.issue.renderedFields.customfield_10035,
         }}
         style={{ margin: '8px 0' }}
-      ></p>
-      {/* <div
-        dangerouslySetInnerHTML={{
-          __html: props.issue.renderedFields.description,
-        }}
-      ></div> */}
+      />
     </div>
   );
 };
