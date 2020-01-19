@@ -1,14 +1,20 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { IJiraIssue, IIssueGroup } from '../Common/jiraIssue';
+import { IIssueGroup } from '../Common/jiraIssue';
 import App from './Components/App';
 import template from './template';
 
-const hej = '';
-
-export const renderIssuesToStaticMarkup = (issueGroups: IIssueGroup[]) => {
+export const renderIssuesToStaticMarkup = (
+  issueGroups: IIssueGroup[],
+  releaseDate: string,
+  version: string,
+) => {
   const bodyStaticMarkup = renderToStaticMarkup(
-    <App issueGroups={issueGroups} />
+    <App
+      issueGroups={issueGroups}
+      releaseDate={releaseDate}
+      version={version}
+    />,
   );
 
   const appStaticMarkup = template({

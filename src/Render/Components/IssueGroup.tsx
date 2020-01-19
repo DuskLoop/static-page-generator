@@ -10,8 +10,8 @@ interface IProps {
 const IssueGroup: React.FunctionComponent<IProps> = props => {
   return (
     <div>
-      <h2>{props.title}</h2>
-      <div style={{ marginLeft: '8px' }}>
+      <h2 className="issue-group-title">{props.title}</h2>
+      <div>
         {props.issues.map(issue => (
           <Issue key={issue.id} issue={issue} />
         ))}

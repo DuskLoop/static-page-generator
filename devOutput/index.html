@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ändringslogg</title>
+    <style>
+      .issue {
+        background-color: red;
+      }
+      .container {
+        max-width: 960px;
+        padding-right: 16px;
+        padding-left: 16px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+      }
+      .image-wrap img {
+        max-width: 100%;
+        height: auto;
+      }
+      .image-wrap {
+        text-align: center;
+        display: block;
+      }
+      .top-bar {
+        background-color: #435465;
+      }
+      .top-bar-logo {
+        margin: 4px 8px 4px 16px; 
+      }
+      .header {
+        padding: 32px 0px 32px;
+        border-bottom: 1px solid #D9D8D7;
+      }
+      .header-title {
+        font-weight: normal;
+        font-size: 18px;
+        margin: 0;
+      }
+      .header-version {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px; 
+        margin: 0;
+      }
+      .header-realease-date {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 0;
+      }
+      .issue-container {
+        margin: 24px 0px;
+      }
+      .issue-title {
+        margin: 0px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        display: inline;
+      }
+      .issue-description {
+        margin: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.9);
+      }
+      .issue-group-title {
+        margin: 24px 0px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+      }
+      .issue-title-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0px;
+      }
+      .issue-more-info-link {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+      .issue-key {
+        margin: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+  </head>
+  <body>
+    <div id="root"><div class="top-bar"><img class="top-bar-logo" src="assets/AvenyLogo.svg" alt="Aveny logga"/></div><div class="container"><div class="header"><h1 class="header-title">Nyheter och rättningar</h1><h2 class="header-version">Aveny version 2020.1.1</h2><h3 class="header-realease-date">2020-01-12</h3></div><div><h2 class="issue-group-title">Musik</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Databasfel om en användare försöker ändra namn på Musikgrupp</h4></div><h6 class="issue-key">KF-778</h6></div><p class="issue-description">Felet &#xE4;r r&#xE4;ttat i denna version av Aveny. </p></div></div></div><div><h2 class="issue-group-title">Bisättningsjournal</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Datum och tid på etiketter</h4></div><h6 class="issue-key">KF-692</h6></div><p class="issue-description">Det st&#xE5;r nu datum och tid p&#xE5; etiketterna fr&#xE5;n bis&#xE4;ttningsjournalen.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Fel placering visas om &quot;Tom urna&quot; har lämnats in</h4></div><h6 class="issue-key">KF-638</h6></div><p class="issue-description">&#xC4;r den senaste inl&#xE4;mningen &quot;tom urna&quot; s&#xE5; har&quot; Aktuella kremationer&quot; inte visat placering p&#xE5; kistan. <br/>
+Det &#xE4;r nu r&#xE4;ttat och endast placering/urval fr&#xE5;n kistan visas.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Sök på personnummer i &quot;Aktuella avlidna&quot;</h4></div><h6 class="issue-key">KF-594</h6></div><p class="issue-description">R&#xE4;ttat: f&#xF6;r att s&#xF6;ka fler g&#xE5;nger i personnummerf&#xE4;ltet s&#xE5; var man tvungen att g&#xE5; ur rutinen i annat fall fick man ett internt fel.<br/>
+Nu ska det g&#xE5; att rensa f&#xE4;ltet p&#xE5; tidigare s&#xF6;kningar och direkt kunna g&#xF6;ra en ny s&#xF6;kning.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Uppdaterat GBS-behörig</h4></div><h6 class="issue-key">KF-465</h6></div><p class="issue-description">Vi har uppdaterat GBSbeh&#xF6;righeterna:<br/>
+<br/>
+3014 - Grav administrat&#xF6;r<br/>
+Lagt till beh&#xF6;righet till nya rutinen Vanv&#xE5;rdsinventering i WebGrav<br/>
+<br/>
+3015 - Grav Arbetsledare<br/>
+Lagt till beh&#xF6;righet till nya rutinen Vanv&#xE5;rdsinventering i WebGrav<br/>
+<br/>
+3016 - Grav expedition<br/>
+Lagt till beh&#xF6;righet till nya rutinen Vanv&#xE5;rdsinventering i WebGrav<br/>
+<br/>
+3017 - Grav Kyrkog&#xE5;rdsarbetare<br/>
+Lagt till l&#xE4;sbeh&#xF6;righet till nya rutinen Vanv&#xE5;rdsinventering i WebGrav<br/>
+<br/>
+3018 - Grav L&#xE4;sbeh&#xF6;righet<br/>
+Lagt till l&#xE4;sbeh&#xF6;righet till nya rutinen Vanv&#xE5;rdsinventering i WebGrav<br/>
+<br/>
+3023 - Bis&#xE4;ttning administrat&#xF6;r<br/>
+Lagt till beh&#xF6;righet till:<br/>
+Transportlistan i Aveny Bis&#xE4;ttningsjournal<br/>
+V&#xE4;lj lokal och Kortinloggning i WebAveny Aveny Bis&#xE4;ttningsjournal<br/>
+<br/>
+3001 - Bis&#xE4;ttning Expedition<br/>
+Lagt till beh&#xF6;righet till:<br/>
+Transportlistan i Aveny Bis&#xE4;ttningsjournal<br/>
+V&#xE4;lj lokal och Kortinloggning i WebAveny Aveny Bis&#xE4;ttningsjournal<br/>
+<br/>
+3012 - Diarium expedition<br/>
+Tagit bort beh&#xF6;righet till styrv&#xE4;rden i Diariet<br/>
+</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Ta bort en journal vid tvist</h4></div><h6 class="issue-key">KF-309</h6></div><p class="issue-description">Det gick tidigare att ta bort en journal i bis&#xE4;ttningen och kremation d&#xE4;r det f&#xF6;rel&#xE5;g tvist. Det g&#xE5;r inte l&#xE4;ngre utan du f&#xE5;r ist&#xE4;llet ett meddelande att detta inte &#xE4;r m&#xF6;jligt.</p></div></div></div><div><h2 class="issue-group-title">Bokning</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">&quot;Avmarkera alla&quot;-knapp för att avmarkera resurser i fönstret &quot;Aktivitetsval&quot;</h4></div><h6 class="issue-key">KF-664</h6></div><p class="issue-description">Det finns nu m&#xF6;jlighet att anv&#xE4;nda en knapp som heter &quot;Avmarkera alla&quot; om bokning g&#xF6;rs fr&#xE5;n exempelvis veckovyn, som bockar f&#xF6;r alla resurser i kalendern automatiskt. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Hantera ledighet från FLEX i rutin &quot;Aktiviteter&quot;</h4></div><h6 class="issue-key">KF-662</h6></div><p class="issue-description">N&#xE4;r bokningar g&#xF6;rs i rutin aktiviteter med resurser som &#xE4;r fr&#xE5;nvarande enligt FLEX har det nu byggt in varningar som uppm&#xE4;rksammar anv&#xE4;ndaren p&#xE5; om en resurs &#xE4;r fr&#xE5;nvarande. <br/>
+<br/>
+Funktionen pilottestas och finns inte tillg&#xE4;nglig &#xE4;nnu. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Internt fel vid repetition av snabbokningar i kalendern</h4></div><h6 class="issue-key">KF-653</h6></div><p class="issue-description">I f&#xF6;reg&#xE5;ende version av Aveny kunde anv&#xE4;ndaren f&#xE5; ett felmeddelande n&#xE4;r en snabbokning repeterades. Felet &#xE4;r r&#xE4;ttat i denna version. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Åldersindelning inkomplett i rutin &quot;Statistikrapportering&quot;</h4></div><h6 class="issue-key">KF-640</h6></div><p class="issue-description">I f&#xF6;reg&#xE5;ende version av Aveny hade vissa f&#xE4;lt f&#xF6;r &#xE5;ldersindelning fallit bort. Felet &#xE4;r r&#xE4;ttat i denna version av Aveny. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Fakturaunderlag som är skapat före 11.9 går inte att backa</h4></div><h6 class="issue-key">KF-637</h6></div><p class="issue-description">I f&#xF6;reg&#xE5;ende version av Aveny gick det inte att backa ett fakturaunderlag som skapats innan version 11.9 av Aveny. Felet &#xE4;r r&#xE4;ttat i denna version av Aveny. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Spara FLEX-frånvaro i rutin  &quot;Tjänstgöring&quot;</h4></div><h6 class="issue-key">KF-635</h6></div><p class="issue-description">N&#xE4;r integration med FLEX aktiveras sparas inl&#xE4;st fr&#xE5;nvaro fr&#xE5;n FLEX i rutin &quot;Tj&#xE4;nstg&#xF6;ring&quot;. <br/>
+<br/>
+Funktionen pilottestas och finns inte tillg&#xE4;nglig &#xE4;nnu. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Systeminställningar för tjänstgöringsintegration</h4></div><h6 class="issue-key">KF-562</h6></div><p class="issue-description">Det finns nu inst&#xE4;llningsm&#xF6;jligheter g&#xE4;llande tj&#xE4;nstg&#xF6;ringsintegration i systeminst&#xE4;llningar.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Information i bokning om faktura är betald</h4></div><h6 class="issue-key">KF-230</h6></div><p class="issue-description">Det visas nu information p&#xE5; aktiviteten om en faktura &#xE4;r ej betald, betald, krediterad eller makulerad.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Uppmärksamma förändringar i FLEX som påverkar bokningar i Aveny</h4></div><h6 class="issue-key">KF-151</h6></div><p class="issue-description">N&#xE4;r integrationen mellan Aveny och FLEX aktiveras kontrollerar Aveny Bokning redan gjorda bokningar mot fr&#xE5;nvaro registrerad i FLEX f&#xF6;r att kunna uppm&#xE4;rksamma anv&#xE4;ndaren om att vissa resurser som bokats p&#xE5; aktiviteter kanske &#xE4;r fr&#xE5;nvarande. <br/>
+<br/>
+Funktionen pilottestas och finns &#xE4;nnu inte tillg&#xE4;nglig. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Matcha resurser i Aveny med anställda i FLEX</h4></div><h6 class="issue-key">KF-140</h6></div><p class="issue-description">N&#xE4;r integrationen mellan Aveny och FLEX aktiveras g&#xF6;r Aveny en automatisk matchning mellan resurser i Aveny och anst&#xE4;llda i FLEX. <br/>
+<br/>
+Funktionen pilottestas och finns inte tillg&#xE4;nglig &#xE4;nnu.</p></div></div></div><div><h2 class="issue-group-title">Grundsystem</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Felrättning: Användare kan inte läggas upp</h4></div><h6 class="issue-key">KF-567</h6></div><p class="issue-description">F&#xF6;r enheter med vissa kombinationer av programoptioner kunde det intr&#xE4;ffa ett fel som gjorde att det inte gick att l&#xE4;gga till nya anv&#xE4;ndare.  Detta &#xE4;r nu &#xE5;tg&#xE4;rdat.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Fel vid sammanslagning av organisationer</h4></div><h6 class="issue-key">KF-248</h6></div><p class="issue-description">Om du f&#xF6;rs&#xF6;kte sl&#xE5; samman organisationer fick du ett fel. Det har vi nu r&#xE4;ttat.</p></div></div></div><div><h2 class="issue-group-title">Grav</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Fel hint på vanvård</h4></div><h6 class="issue-key">KF-336</h6></div><p class="issue-description">En felaktig hint visades p&#xE5; knapparna L&#xE4;gg till och Godk&#xE4;nd i vanv&#xE5;rsrutinen i WebAveny. Det &#xE4;r nu r&#xE4;ttat.</p></div></div></div><div><h2 class="issue-group-title">Övrigt</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Uppdatera dependencies</h4> <a class="issue-more-info-link" href="pages/GR-282.html">mer info</a></div><h6 class="issue-key">GR-282</h6></div><p class="issue-description">Har uppdaterat dependencies.</p></div></div></div><div><h2 class="issue-group-title">Ekonomi</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Bokföringsfil från KOB</h4></div><h6 class="issue-key">EK-708</h6></div><p class="issue-description">Aveny har sedan tidigare en l&#xF6;sning f&#xF6;r att hantera fl&#xF6;det av inomkyrkliga kund- och leverant&#xF6;rsfakturor som g&#xE5;r via KOB, Svenska Kyrkans Kollekt och Betalsystem.<br/>
+<br/>
+D&#xE4;remot har det varit en manuell hantering av den netting som genomf&#xF6;rs en g&#xE5;ng i m&#xE5;naden. En rapport med en specifikation &#xF6;ver hur mycket som har  in- och utbetalats f&#xF6;r kollekter, kyrkoavgiften, KAE osv. har skrivits ut f&#xF6;r att sedan manuellt bokf&#xF6;ras i Aveny. Nu finns ett programst&#xF6;d f&#xF6;r den h&#xE4;r hanteringen. Programst&#xF6;det best&#xE5;r av en ny rutin Bokf&#xF6;ringsfil fr&#xE5;n KOB och ett nytt styrv&#xE4;rde KOB transaktionstyper under delprogram Ekonomi. <br/>
+<br/>
+KOB skapar en bokf&#xF6;ringsfil som Aveny l&#xE4;ser in i den nya rutinen Bokf&#xF6;ringsfil fr&#xE5;n KOB. Via den nya rutinen skapas en bokf&#xF6;ringsorder. De h&#xE4;r stegen sker p&#xE5; automatik. Hanteringen av filen sker i rutin Bokf&#xF6;ringsorder. H&#xE4;r finns bl.a. m&#xF6;jlighet att bifoga ett underlag, tex KOB-rapport som ni idag utg&#xE5;r ifr&#xE5;n vid bokf&#xF6;ring, och det finns en inbyggd funktion som m&#xF6;jligg&#xF6;r attest. Attestfunktionen &#xE4;r valbar och har ni valt att arbeta med den utf&#xF6;rs attesten i Webaveny. <br/>
+<br/>
+I rutin Bokf&#xF6;ringsorder skapas en verifikation som sedan definitivbokf&#xF6;rs i Rutin Bokf&#xF6;ringsjournal.</p></div></div></div><div><h2 class="issue-group-title">Order/Fakturering</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">E-faktura företag</h4></div><h6 class="issue-key">EK-528</h6></div><p class="issue-description">Nu g&#xF6;rs en kontroll i Aveny att GLN-numret som skrivs in &#xE4;r i korrekt format. GLN-nummer anger organisationskundens identitet.</p></div></div></div><div><h2 class="issue-group-title">Kundreskontra</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">E-faktura till Nordea-kunder</h4></div><h6 class="issue-key">EK-474</h6></div><p class="issue-description">E-fakturor har tidigare inte kunnat tas emot av privatkunder hos Nordea pga Nordeas OCR-hantering. Nu tas E-fakturor emot s&#xE5; l&#xE4;nge enheten antingen har h&#xE5;rd sp&#xE4;rr p&#xE5; sitt inbetalningskonto och/eller har OCR-nummer som fakturanummer. Till &#xF6;vriga banker kan E-faktura privat skickas oavsett OCR-inst&#xE4;llningar, precis som tidigare.</p></div></div></div><div><h2 class="issue-group-title">Anläggningsredovisning</h2><div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Rapport Årsredovisning anläggningstillgångar visade inte bidra på Sammanslagna investeringar </h4></div><h6 class="issue-key">EK-388</h6></div><p class="issue-description">Bidrag som registrerats p&#xE5; Sammanslagna investeringar visades inte i rapport &#xC5;rsredovisningsnot anl&#xE4;ggningstillg&#xE5;ngar. Felet &#xE4;r nu r&#xE4;ttat och bidrag p&#xE5; sammanslagna investeringar visas som som ing&#xE5;ende bidrag i rapporten. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Felmeddelande vid beräkning av avskrivningar när en koddel avslutats i tidigare period</h4></div><h6 class="issue-key">EK-338</h6></div><p class="issue-description">Ett fel har gjort att ett felmeddelande har genererats vid ber&#xE4;kning av avskrivningar n&#xE4;r en koddel avslutats trots att det inte finns n&#xE5;gra poster att omf&#xF6;ra. Felet &#xE4;r nu r&#xE4;ttat och avskrivningar kan nu ber&#xE4;knas och bokf&#xF6;ras &#xE4;ven om koddelar avslutats och &#xE4;ndrats i tidigare perioder.  </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Urval visas på samtliga rapporter i rutin Investeringar </h4></div><h6 class="issue-key">EK-294</h6></div><p class="issue-description">Tidigare var det inte m&#xF6;jligt att se vilket urval som gjorts p&#xE5; rapporterna Sammandrag av &#xE5;rets bokf&#xF6;rda h&#xE4;ndelser, Specifikation av &#xE5;rets bokf&#xF6;rda h&#xE4;ndelser, Specifikation av &#xE5;rets bokf&#xF6;rda internr&#xE4;nta och &#xC5;rsredovisningsnot anl&#xE4;ggningstillg&#xE5;ngar. Urval som g&#xF6;rs innan rapporterna tas fram visas nu l&#xE4;ngst upp p&#xE5; sidhuvudet av rapporten. Har inga urval gjort visas texten; Inga urvalsbegr&#xE4;nsningar. Observera att vid avst&#xE4;mning mellan huvudbok och anl&#xE4;ggningsregister ska ett blank urval g&#xF6;ras, vilket inneb&#xE4;r inga urvalsbegr&#xE4;nsningar. Alla urval som g&#xF6;rs via &#xF6;ppningsurvalet visas p&#xE5; v&#xE4;nster sida av rapporten. Detta g&#xE4;ller f&#xF6;ljande urvalsf&#xE4;lt; anl&#xE4;ggningsnummer, ben&#xE4;mning anl&#xE4;ggningstillg&#xE5;ng, rubrik och ben&#xE4;mning anl&#xE4;ggningskategori. Resterande urval som g&#xF6;rs visas p&#xE5; h&#xF6;ger sida av rapporten.</p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Bidrag visades inte korrekt för avyttrade och utrangerade investeringar i rapport Årsredovisningsnot anläggningstillgångar</h4></div><h6 class="issue-key">EK-270</h6></div><p class="issue-description">Rapport &#xC5;rsredovisningsnot anl&#xE4;ggningstillg&#xE5;ng visade inte bidragen korrekt f&#xF6;r investeringar som avyttrats eller s&#xE5;lts under &#xE5;ret.  Felet &#xE4;r r&#xE4;ttat och raden f&#xF6;r Utg&#xE5;ende ackumulerade bidrag f&#xF6;r utrangerade och eller avyttrade investeringar visar nu 0 kr. </p></div><div class="issue-container"><div class="issue-title-row"><div><h4 class="issue-title">Prestandaförbättring rutin Bokför avskrivningar och rutin Bokför internränta  </h4></div><h6 class="issue-key">EK-148</h6></div><p class="issue-description">Vi har arbetat med prestandaf&#xF6;rb&#xE4;ttring som inneb&#xE4;r att tiden f&#xF6;r att ber&#xE4;kna avskrivningar och internr&#xE4;nta ska minska med 60-70%. </p></div></div></div></div></div>  
+  </body>
+</html>
+  

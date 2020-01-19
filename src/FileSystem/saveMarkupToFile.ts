@@ -24,13 +24,16 @@ const getProductionOutputFolderPath = (version: string) => {
   return `${outputPath}/${folderName}`;
 };
 
-export const saveStaticMarkupToFile = (
-  version: string,
-  staticMarkup: string
-): Promise<string> => {
-  const folderPath = isProduction()
+export const getFolderPath = (version: string) =>
+  isProduction()
     ? getProductionOutputFolderPath(version)
     : getDevelopmentOutputFolderPath();
+
+export const saveStaticMarkupToFile = (
+  version: string,
+  staticMarkup: string,
+): Promise<string> => {
+  const folderPath = getFolderPath(version);
 
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });

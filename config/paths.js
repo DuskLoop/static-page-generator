@@ -10,4 +10,5 @@ module.exports = {
   appIndex: resolveApp('src/index.tsx'),
   appDevOutput: resolveApp('devOutput'),
   appProductionOutput: 'N:/Exe/Aveny/AvenyChangelogDrafts',
+  moreInfoTemplate: resolveApp('src/Render/moreInfoTemplate.html'),
 };

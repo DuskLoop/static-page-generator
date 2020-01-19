@@ -1,21 +1,16 @@
 import fetch from 'node-fetch';
 import { jiraApiKey, jiraApiBaseUrl } from './jiraConfig';
 
-interface IJiraVersion {
+export interface IJiraVersion {
   id: string;
   name: string;
   released: boolean;
   releaseDate: string;
 }
 
-export interface IVersion {
-  name: string;
-  value: string;
-}
-
 export const versionCompareFunction = (
   versionA: IJiraVersion,
-  versionB: IJiraVersion
+  versionB: IJiraVersion,
 ): number => {
   return (
     new Date(versionB.releaseDate).getTime() -
@@ -37,19 +32,19 @@ export const getVersions = async (): Promise<IJiraVersion[]> => {
           'Content-Type': 'application/json',
         },
       }).then(res => res.json());
-    }
+    },
   );
 
   return Promise.all(projectVersionPromises).then(projectVersions => {
     const flattenedProjectVersions = projectVersions.reduce(
       (acc, val) => acc.concat(val),
-      []
+      [],
     );
 
     return flattenedProjectVersions.reduce<IJiraVersion[]>(
       (versions, currentProjectVersions) => {
         const index = versions.findIndex(
-          version => version.name === currentProjectVersions.name
+          version => version.name === currentProjectVersions.name,
         );
 
         if (index === -1) {
@@ -58,7 +53,7 @@ export const getVersions = async (): Promise<IJiraVersion[]> => {
           return versions;
         }
       },
-      []
+      [],
     );
   });
 };

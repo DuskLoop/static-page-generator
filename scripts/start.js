@@ -18,7 +18,10 @@ spawn('node_modules\\.bin\\tsc', ['-w'], {
 /**
  * Update browser
  */
-browserSync({ server: paths.appDevOutput, files: paths.appDevOutput });
+browserSync({
+  server: paths.appDevOutput,
+  files: paths.appDevOutput,
+});
 
 /**
  * Use nodemon to watch files, transpile with Babel

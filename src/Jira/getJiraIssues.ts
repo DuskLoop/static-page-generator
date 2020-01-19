@@ -27,11 +27,12 @@ const getJiraIssuesPage = async (
   issues: IJiraIssue[],
   startAt: number,
   resolve: (value: IJiraIssue[] | PromiseLike<IJiraIssue[]>) => void,
-  reject: (reason?: any) => void
+  reject: (reason?: any) => void,
 ) => {
   const jiraUrl = getJiraUrl(userInput, startAt);
 
   const res = await fetchAndParse(jiraUrl);
+
   const retrievedIssues: IJiraIssue[] = [...issues, ...res.issues];
 
   if (res.total > res.maxResults + res.startAt) {
@@ -43,7 +44,7 @@ const getJiraIssuesPage = async (
 };
 
 export const getJiraIssues = async (
-  userInput: IUserInput
+  userInput: IUserInput,
 ): Promise<IJiraIssue[]> => {
   const issues = await new Promise<IJiraIssue[]>((resolve, reject) => {
     getJiraIssuesPage(userInput, [], 0, resolve, reject);
@@ -86,7 +87,7 @@ export const groupIssues = (issues: IJiraIssue[]): IIssueGroup[] => {
 };
 
 export const getJiraIssueGroups = async (
-  userInput: IUserInput
+  userInput: IUserInput,
 ): Promise<IIssueGroup[]> => {
   const issues = await getJiraIssues(userInput);
 
