@@ -14,7 +14,7 @@ interface IProps {
 const App: React.FC<IProps> = props => {
   return (
     <>
-      <TopBar />
+      <TopBar src="assets/AvenyLogo.svg" />
       <div className={'container'}>
         <Header version={props.version} releaseDate={props.releaseDate} />
         {props.issueGroups.map(issueGroup => (

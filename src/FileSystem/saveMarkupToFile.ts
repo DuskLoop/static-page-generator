@@ -1,39 +1,11 @@
 import fs from 'fs';
-import paths from '../../config/paths';
-import { isProduction, formatDateTime } from '../Common/utils';
-import { resolve } from 'dns';
 
-const timeStampOptions = {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-};
-
-const getDevelopmentOutputFolderPath = () => {
-  return paths.appDevOutput;
-};
-
-const getProductionOutputFolderPath = (version: string) => {
-  const folderName = `v${version} (${formatDateTime(new Date())})`;
-
-  const outputPath = paths.appProductionOutput;
-
-  return `${outputPath}/${folderName}`;
-};
-
-export const getFolderPath = (version: string) =>
-  isProduction()
-    ? getProductionOutputFolderPath(version)
-    : getDevelopmentOutputFolderPath();
+import { getFolderPath } from './outputFolder';
 
 export const saveStaticMarkupToFile = (
-  version: string,
-  staticMarkup: string,
+  staticMarkup: string
 ): Promise<string> => {
-  const folderPath = getFolderPath(version);
+  const folderPath = getFolderPath();
 
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });

@@ -19,6 +19,18 @@ enum Subsystem {
   'Order/Fakturering' = 'Order/Fakturering',
 }
 
+const subsystems = [
+  Subsystem.Anläggningsredovisning,
+  Subsystem.Bisättningsjournal,
+  Subsystem.Bokning,
+  Subsystem.Ekonomi,
+  Subsystem.Grav,
+  Subsystem.Kremationsjournal,
+  Subsystem.Kundreskontra,
+  Subsystem.Leverantörsreskontra,
+  Subsystem.Musik,
+];
+
 const gasSubsystems = [
   Subsystem.Anläggningsredovisning,
   Subsystem.Ekonomi,
@@ -48,7 +60,9 @@ export const getJiraConfig = (userInput: IUserInput): IJiraConfig => {
   };
 };
 
-export const jiraApiBaseUrl = 'http://eniacdata.atlassian.net/rest/api/3/';
+export const jiraUrl = 'http://eniacdata.atlassian.net';
+
+export const jiraApiBaseUrl = `${jiraUrl}/rest/api/3/`;
 
 export const jiraApiKey =
   'ZGFuaWVsLmhpbGRlc3NvbkBlbmlhYy5zZTo4ZmJBYTNrNXJjZkFhU0tYSFNRU0YxREI=';

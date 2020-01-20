@@ -18,7 +18,7 @@ export default ({ body, title }: { body: string; title: string }) => {
         margin-right: auto;
       }
       body {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
         margin: 0;
       }
       .image-wrap img {
@@ -63,22 +63,22 @@ export default ({ body, title }: { body: string; title: string }) => {
       .issue-title {
         margin: 0px;
         font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
+        font-weight: bold;
+        font-size: 18px;
         display: inline;
       }
       .issue-description {
         margin: 0;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 16px;
         color: rgba(0, 0, 0, 0.9);
       }
       .issue-group-title {
         margin: 24px 0px;
         font-style: normal;
         font-weight: normal;
-        font-size: 28px;
+        font-size: 26px;
       }
       .issue-title-row {
         display: flex;
@@ -88,16 +88,40 @@ export default ({ body, title }: { body: string; title: string }) => {
       .issue-more-info-link {
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 18px;
         white-space: nowrap;
       }
       .issue-key {
         margin: 0;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 18px;
         color: rgba(0, 0, 0, 0.5);
         white-space: nowrap;
+      }
+      .issue-group-issues-container {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #D9D8D7;
+      }
+      @font-face {
+        font-family: "Brandon Grotesque";
+        font-weight: 500;
+        src: url(./assets/brandon-grotesque-light-58a8a4b38001d.otf) format("opentype");
+      }
+      @font-face {
+        font-family: "Brandon Grotesque";
+        font-weight: 800;
+        src: url(./assets/brandon-grotesque-black-58a8a3e824392.otf) format("opentype");
+      }
+      @font-face {
+        font-family: "Nunito Sans";
+        font-weight: 500;
+        src: url(./assets/NunitoSans-Regular.ttf) format("truetype");
+      }
+      @font-face {
+        font-family: "Nunito Sans";
+        font-weight: 800;
+        src: url(./assets/NunitoSans-Bold.ttf) format("truetype");
       }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">

@@ -11,7 +11,7 @@ const IssueGroup: React.FunctionComponent<IProps> = props => {
   return (
     <div>
       <h2 className="issue-group-title">{props.title}</h2>
-      <div>
+      <div className="issue-group-issues-container">
         {props.issues.map(issue => (
           <Issue key={issue.id} issue={issue} />
         ))}
