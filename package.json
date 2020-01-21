@@ -8,7 +8,7 @@
     "startMockedIssues": "cross-env USE_MOCKED_ISSUES=Y node ./scripts/start",
     "build": "node ./scripts/build",
     "mock": "node ./scripts/mockIssues",
-    "package": "yarn build && pkg build/index.js --targets node12-win-x64 --output exe/Changelog"
+    "package": "yarn build && pkg build/index.js --targets node12-win-x64 --output exe/Changelog --config package.json"
   },
   "devDependencies": {
     "@babel/core": "7.8.3",
@@ -17,6 +17,7 @@
     "@babel/preset-react": "7.8.3",
     "@babel/preset-typescript": "7.8.3",
     "@types/inquirer": "6.5.0",
+    "@types/ncp": "2.0.3",
     "@types/node": "12.12.19",
     "@types/node-fetch": "2.5.4",
     "@types/react": "16.9.17",
@@ -32,9 +33,16 @@
     "@babel/cli": "7.8.3",
     "chalk": "3.0.0",
     "inquirer": "7.0.3",
+    "ncp": "2.0.0",
     "node-fetch": "2.6.0",
     "open": "7.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"
+  },
+  "pkg": {
+    "assets": [
+      "devOutput/assets",
+      "src/Templates"
+    ]
   }
 }

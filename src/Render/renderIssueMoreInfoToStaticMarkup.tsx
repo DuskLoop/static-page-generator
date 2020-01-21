@@ -7,10 +7,10 @@ import { IJiraIssue } from '../Common/jiraIssue';
 import { IssueMoreInfo } from './Components/IssueMoreInfo';
 import paths from '../../config/paths';
 import { jiraUrl, jiraApiKey } from '../Jira/jiraConfig';
-import { getFolderPath } from '../FileSystem/outputFolder';
+import { getOutputFolderPath } from '../FileSystem/outputFolder';
 
 const downloadImage = (src: string, fileName: string) => {
-  const folderPath = `${getFolderPath()}/images`;
+  const folderPath = `${getOutputFolderPath()}/images`;
 
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
@@ -60,7 +60,15 @@ export const renderIssueMoreInfoToStaticMarkup = (issue: IJiraIssue) => {
 
   const bodyStaticMarkupWithImagesReplaced = replaceImagesSrc(bodyStaticMarkup);
 
-  const template = fs.readFileSync(paths.moreInfoTemplate, 'utf8');
+  let template = '';
+  try {
+    template = fs.readFileSync(
+      `${paths.appTemplates}/moreInfoTemplate.html`,
+      'utf8'
+    );
+  } catch (error) {
+    console.log(error);
+  }
 
   const moreInfoStaticMarkup = template
     .replace('${title}', issue.key)

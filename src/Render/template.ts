@@ -31,6 +31,7 @@ export default ({ body, title }: { body: string; title: string }) => {
       }
       .top-bar {
         background-color: #435465;
+        min-height: 62px;
       }
       .top-bar-logo {
         margin: 4px 8px 4px 16px; 
@@ -73,6 +74,7 @@ export default ({ body, title }: { body: string; title: string }) => {
         font-weight: normal;
         font-size: 16px;
         color: rgba(0, 0, 0, 0.9);
+        margin-top: 6px;
       }
       .issue-group-title {
         margin: 24px 0px;
@@ -83,7 +85,6 @@ export default ({ body, title }: { body: string; title: string }) => {
       .issue-title-row {
         display: flex;
         justify-content: space-between;
-        margin: 6px 0px;
       }
       .issue-more-info-link {
         font-style: normal;
@@ -103,28 +104,27 @@ export default ({ body, title }: { body: string; title: string }) => {
         padding-bottom: 16px;
         border-bottom: 1px solid #D9D8D7;
       }
-      @font-face {
-        font-family: "Brandon Grotesque";
-        font-weight: 500;
-        src: url(./assets/brandon-grotesque-light-58a8a4b38001d.otf) format("opentype");
+      .chip {
+        font-size: 14px;
+        display: inline-block;
+        border-radius: 12px;
+        padding: 2px 8px;
+        color: #fffff8;
       }
-      @font-face {
-        font-family: "Brandon Grotesque";
-        font-weight: 800;
-        src: url(./assets/brandon-grotesque-black-58a8a3e824392.otf) format("opentype");
+      .chip-color-blue {
+        background-color: #1976d2;
       }
-      @font-face {
-        font-family: "Nunito Sans";
-        font-weight: 500;
-        src: url(./assets/NunitoSans-Regular.ttf) format("truetype");
+      .chip-color-orange {
+        background-color: #f44336;
       }
-      @font-face {
-        font-family: "Nunito Sans";
-        font-weight: 800;
-        src: url(./assets/NunitoSans-Bold.ttf) format("truetype");
+      .chip-color-teal {
+        background-color: #009688;
+      }
+      .chip-color-purple {
+        background-color: #673ab7;
       }
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/favicon.ico" />
   </head>
   <body>

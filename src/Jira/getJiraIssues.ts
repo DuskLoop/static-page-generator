@@ -6,6 +6,7 @@ import {
   jiraApiBaseUrl,
 } from './jiraConfig';
 import fetch from 'node-fetch';
+import { IJiraSingleSelectValue } from '../Common/jiraField';
 
 const getJiraUrl = (userInput: IUserInput, startAt: number) => {
   const jiraConfig = getJiraConfig(userInput);
@@ -27,7 +28,7 @@ const getJiraIssuesPage = async (
   issues: IJiraIssue[],
   startAt: number,
   resolve: (value: IJiraIssue[] | PromiseLike<IJiraIssue[]>) => void,
-  reject: (reason?: any) => void,
+  reject: (reason?: any) => void
 ) => {
   const jiraUrl = getJiraUrl(userInput, startAt);
 
@@ -44,7 +45,7 @@ const getJiraIssuesPage = async (
 };
 
 export const getJiraIssues = async (
-  userInput: IUserInput,
+  userInput: IUserInput
 ): Promise<IJiraIssue[]> => {
   const issues = await new Promise<IJiraIssue[]>((resolve, reject) => {
     getJiraIssuesPage(userInput, [], 0, resolve, reject);
@@ -59,21 +60,32 @@ export const getJiraIssues = async (
   }
 };
 
-const findIssueGroupIndex = (title: string, issueGroups: IIssueGroup[]) =>
-  issueGroups.findIndex(issueGroup => issueGroup.title === title);
+export const defaultIssueGroup: IJiraSingleSelectValue = {
+  id: '*1',
+  value: 'Övrigt',
+};
+
+const findIssueGroupIndex = (id: string, issueGroups: IIssueGroup[]) =>
+  issueGroups.findIndex(issueGroup => issueGroup.id === id);
 
 export const groupIssues = (issues: IJiraIssue[]): IIssueGroup[] => {
   return issues.reduce<IIssueGroup[]>((issueGroups, currentIssue) => {
     let newIssueGroups: IIssueGroup[] | undefined;
 
-    const firstComponent = currentIssue.fields.components[0];
+    const subsystem =
+      currentIssue.fields.customfield_10037 || defaultIssueGroup;
 
-    const title = firstComponent != null ? firstComponent.name : 'Övrigt';
-
-    const groupIndex = findIssueGroupIndex(title, issueGroups);
+    const groupIndex = findIssueGroupIndex(subsystem.id, issueGroups);
 
     if (groupIndex === -1) {
-      newIssueGroups = [...issueGroups, { title, issues: [currentIssue] }];
+      newIssueGroups = [
+        ...issueGroups,
+        {
+          title: subsystem.value,
+          id: subsystem.id,
+          issues: [currentIssue],
+        },
+      ];
     } else {
       newIssueGroups = [...issueGroups];
       newIssueGroups[groupIndex].issues = [
@@ -87,7 +99,7 @@ export const groupIssues = (issues: IJiraIssue[]): IIssueGroup[] => {
 };
 
 export const getJiraIssueGroups = async (
-  userInput: IUserInput,
+  userInput: IUserInput
 ): Promise<IIssueGroup[]> => {
   const issues = await getJiraIssues(userInput);
 

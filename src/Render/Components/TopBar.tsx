@@ -1,4 +1,5 @@
 import React from 'react';
+import AvenyIcons from './AvenyIcon';
 
 interface IProps {
   src: string;
@@ -6,14 +7,14 @@ interface IProps {
 }
 
 export const TopBar: React.FC<IProps> = props => {
-  const img = (
-    <img className="top-bar-logo" src={props.src} alt="Aveny logga" />
-  );
-
   return (
     <div className="top-bar">
-      {props.homeBtn && <a href="../">{img}</a>}
-      {!props.homeBtn && img}
+      {props.homeBtn && (
+        <a href="../index.html">
+          <AvenyIcons />
+        </a>
+      )}
+      {!props.homeBtn && <AvenyIcons />}
     </div>
   );
 };

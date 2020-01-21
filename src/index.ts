@@ -4,28 +4,40 @@ import inquirer from 'inquirer';
 import { renderIssuesToStaticMarkup } from './Render/renderIssues';
 import { validateIssues } from './Jira/validateIssues';
 import { saveStaticMarkupToFile } from './FileSystem/saveMarkupToFile';
-import { groupIssues, getJiraIssues } from './Jira/getJiraIssues';
+import {
+  groupIssues,
+  getJiraIssues,
+  defaultIssueGroup,
+} from './Jira/getJiraIssues';
 import { mockedIssues } from './issuesMock';
 import { IUserInput } from './Jira/jiraConfig';
 import { getUserInputFromCLI } from './CLI/cli';
 import { isProduction } from './Common/utils';
 import { generateSubpages } from './Utils/generateSubpages';
-import { getFolderPath } from './FileSystem/outputFolder';
+import {
+  getOutputFolderPath,
+  setOutputFolderPath,
+} from './FileSystem/outputFolder';
+import { gasSubsystemIds } from './Jira/jiraConfig';
+import IssueGroup from './Render/Components/IssueGroup';
+import { IJiraIssue } from './Common/jiraIssue';
+import ncp from 'ncp';
+import paths from '../config/paths';
+import path from 'path';
+import fs from 'fs';
 
-const generateChangelog = async (userInput: IUserInput): Promise<string> => {
-  getFolderPath(userInput.version.name);
-  // const jiraIssues =
-  //   process.env.USE_MOCKED_ISSUES === 'Y'
-  //     ? mockedIssues
-  //     : await getJiraIssues(userInput);
-  const jiraIssues = await getJiraIssues(userInput);
+const generateChangelog2 = async (
+  userInput: IUserInput,
+  issues: IJiraIssue[],
+  gas: boolean
+): Promise<string> => {
+  setOutputFolderPath(userInput.version.name, gas);
 
-  validateIssues(jiraIssues);
-  generateSubpages(jiraIssues);
+  generateSubpages(issues);
 
-  const issueGroups = groupIssues(jiraIssues);
+  const allIssueGroups = groupIssues(issues);
 
-  issueGroups.sort((a, b) => {
+  allIssueGroups.sort((a, b) => {
     if (a.title < b.title) {
       return -1;
     }
@@ -35,15 +47,38 @@ const generateChangelog = async (userInput: IUserInput): Promise<string> => {
     return 0;
   });
 
-  // const gasIssueGroups = issueGroups.filter();
-
   const staticMarkup = renderIssuesToStaticMarkup(
-    issueGroups,
+    allIssueGroups,
     userInput.version.releaseDate,
     userInput.version.name
   );
 
   return saveStaticMarkupToFile(staticMarkup);
+};
+
+const generateChangelog = async (userInput: IUserInput): Promise<string> => {
+  // const jiraIssues =
+  //   process.env.USE_MOCKED_ISSUES === 'Y'
+  //     ? mockedIssues
+  //     : await getJiraIssues(userInput);
+  const allIssues = await getJiraIssues(userInput);
+
+  validateIssues(allIssues);
+
+  if (isProduction()) {
+    console.log('Genererar ändringslogg för GAS');
+
+    const gasIssues = allIssues.filter(
+      issue =>
+        issue.fields.customfield_10037 == null ||
+        gasSubsystemIds.includes(issue.fields.customfield_10037.id)
+    );
+
+    const gasPath = await generateChangelog2(userInput, gasIssues, true);
+  }
+
+  console.log('Genererar ändringslogg för icke-GAS');
+  return generateChangelog2(userInput, allIssues, false);
 };
 
 const generateChangelogFromCLIInput = async () => {
@@ -56,7 +91,7 @@ const generateChangelogFromCLIInput = async () => {
       {
         type: 'confirm',
         name: 'open',
-        message: 'Vill du öppna ändringsloggen i en webbläsare nu?',
+        message: 'Vill du öppna ändringsloggen i en webbläsare nu? (Icke GAS)',
         default: true,
       },
     ])

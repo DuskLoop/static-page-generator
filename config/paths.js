@@ -9,6 +9,7 @@ module.exports = {
   appSrc: resolveApp('src'),
   appIndex: resolveApp('src/index.tsx'),
   appDevOutput: resolveApp('devOutput'),
+  appAssetsPath: path.join(__dirname, '../devOutput/assets'),
+  appTemplates: path.join(__dirname, '../src/Templates'),
   appProductionOutput: 'N:/Exe/Aveny/AvenyChangelogDrafts',
-  moreInfoTemplate: resolveApp('src/Render/moreInfoTemplate.html'),
 };

@@ -11,5 +11,6 @@ export interface IJiraIssue {
 
 export interface IIssueGroup {
   title: string;
+  id: string;
   issues: IJiraIssue[];
 }

@@ -1,13 +1,13 @@
 import fs from 'fs';
 
 import { IJiraIssue } from '../Common/jiraIssue';
-import { getFolderPath } from './outputFolder';
+import { getOutputFolderPath } from './outputFolder';
 
 export const saveIssueMoreInfoStaticMarkupToFile = (
   staticMarkup: string,
   issue: IJiraIssue
 ): void => {
-  const folderPath = `${getFolderPath()}/pages`;
+  const folderPath = `${getOutputFolderPath()}/pages`;
 
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });

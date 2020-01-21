@@ -2264,6 +2264,96 @@ export const mockedIssues = [
   },
   {
     "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "12273",
+    "self": "https://eniacdata.atlassian.net/rest/api/3/issue/12273",
+    "key": "GR-282",
+    "renderedFields": {
+      "summary": null,
+      "components": null,
+      "description": "<p>Gå igenom vilka paket som är \"outdated\" uppdatera det som är enkelt</p>\n\n<p>Om något paket har släppt en uppdatering som kräver större ändring så lägger vi en separat uppgift för det i backloggen</p>\n\n<p>Om prettier uppdaterats så kör: yarn run prettier</p>\n\n<p>Notera om någon uppdatering innehåller något särskilt som behöver informeras om. Lägg en kommentar på uppgiften med \"mention\" till programmarna (+ ev. andra).</p>\n\n<p>Kopiera den här uppgiften till backloggen och ändra benämningen till nästa månad</p>",
+      "customfield_10034": "Uppdatera dependencies",
+      "customfield_10035": "Har uppdaterat dependencies.",
+      "customfield_10036": null
+    },
+    "fields": {
+      "summary": "Uppdatera dependencies (Januari)",
+      "components": [],
+      "description": {
+        "version": 1,
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Gå igenom vilka paket som är \"outdated\" uppdatera det som är enkelt"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Om något paket har släppt en uppdatering som kräver större ändring så lägger vi en separat uppgift för det i backloggen"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Om prettier uppdaterats så kör: yarn run prettier"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Notera om någon uppdatering innehåller något särskilt som behöver informeras om. Lägg en kommentar på uppgiften med \"mention\" till programmarna (+ ev. andra)."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Kopiera den här uppgiften till backloggen och ändra benämningen till nästa månad"
+              }
+            ]
+          }
+        ]
+      },
+      "customfield_10034": "Uppdatera dependencies",
+      "customfield_10035": {
+        "version": 1,
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Har uppdaterat dependencies."
+              }
+            ]
+          }
+        ]
+      },
+      "customfield_10036": {
+        "self": "https://eniacdata.atlassian.net/rest/api/3/customFieldOption/10005",
+        "value": "Ja",
+        "id": "10005"
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
     "id": "13181",
     "self": "https://eniacdata.atlassian.net/rest/api/3/issue/13181",
     "key": "EK-708",

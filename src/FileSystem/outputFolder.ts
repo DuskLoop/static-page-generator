@@ -5,24 +5,26 @@ const getDevelopmentOutputFolderPath = () => {
   return paths.appDevOutput;
 };
 
-const getProductionOutputFolderPath = (version: string) => {
-  const folderName = `v${version} (${formatDateTime(new Date())})`;
+const getProductionOutputFolderPath = (version: string, gas: boolean) => {
+  const folderName = `${gas ? 'GAS_' : ''}v${version} (${formatDateTime(
+    new Date()
+  )})`;
 
   const outputPath = paths.appProductionOutput;
 
   return `${outputPath}/${folderName}`;
 };
 
-let folderPath = '';
-export const getFolderPath = (version?: string) => {
-  if (!folderPath) {
-    if (version == null) {
-      throw Error('Cannot get folderpath without version');
-    }
-    folderPath = isProduction()
-      ? getProductionOutputFolderPath(version)
-      : getDevelopmentOutputFolderPath();
-  }
+let outputFolderPath = '';
+export const setOutputFolderPath = (version: string, gas: boolean) => {
+  outputFolderPath = isProduction()
+    ? getProductionOutputFolderPath(version, gas)
+    : getDevelopmentOutputFolderPath();
+};
 
-  return folderPath;
+export const getOutputFolderPath = () => {
+  if (!outputFolderPath) {
+    throw Error('OutputFolderPath not set');
+  }
+  return outputFolderPath;
 };
