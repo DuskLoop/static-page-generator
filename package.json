@@ -34,7 +34,7 @@
     "chalk": "3.0.0",
     "inquirer": "7.0.3",
     "ncp": "2.0.0",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "open": "7.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"
